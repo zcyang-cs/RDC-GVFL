@@ -3,4 +3,3 @@ This repository is PyTorch implementation for the PRCV 2023 paper RDC-GVFL: A Ro
 
 The supplemental material is also available in this repository.
 
-Codes will come soon.
