@@ -8,7 +8,7 @@ The supplemental material is also available in this repository.
 ## Data 
 Here we provide the processed data. And the Raw Data can be found in:  
 * Cora Dataset: https://github.com/kimiyoung/planetoid/tree/master/data.  
-* Cora_ML Dataset: https://github.com/kimiyoung/planetoid/tree/master/data.  
+* Cora_ML Dataset: https://github.com/danielzuegner/gnn-meta-attack/blob/master/data/cora_ml.npz.  
 * Pubmed Dataset: https://github.com/kimiyoung/planetoid/tree/master/data. 
 
 ## Requirements 
