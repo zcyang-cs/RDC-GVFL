@@ -6,10 +6,10 @@ This repository is PyTorch implementation for the PRCV 2023 paper RDC-GVFL: A Ro
 The supplemental material is also available in this repository.
 
 ## Data 
-Here we provide the processed data. And the Raw Data can be found in: 
-Cora Dataset: https://github.com/kimiyoung/planetoid/tree/master/data.  
-Cora_ML Dataset: https://github.com/kimiyoung/planetoid/tree/master/data.  
-Pubmed Dataset: https://github.com/kimiyoung/planetoid/tree/master/data. 
+Here we provide the processed data. And the Raw Data can be found in:  
+* Cora Dataset: https://github.com/kimiyoung/planetoid/tree/master/data.  
+* Cora_ML Dataset: https://github.com/kimiyoung/planetoid/tree/master/data.  
+* Pubmed Dataset: https://github.com/kimiyoung/planetoid/tree/master/data. 
 
 ## Requirements 
 >Python 3.9.16,  
