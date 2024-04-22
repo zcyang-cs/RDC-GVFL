@@ -6,10 +6,8 @@ import torch.nn.functional as F
 
 class GraphConvolution(torch.nn.Module):
     """
-    Simple GCN layer, similar to https://arxiv.org/abs/1609.02907 \n
-    copy from DeepRobust
+    https://arxiv.org/abs/1609.02907 
     """
-
     def __init__(self, in_features, out_features, with_bias=True):
         super(GraphConvolution, self).__init__()
         self.in_features = in_features
@@ -45,15 +43,6 @@ class GraphConvolution(torch.nn.Module):
 
 
 class GCN(torch.nn.Module):
-    """
-    2 Layer Partial Graph Convolutional Network(aka. Head GCN), changed from DeepRobust.
-
-    Init:
-        model = Head_GCN(nfeat, nhid, nemb, ...)
-    Usage:
-        model(x, adj_norm) -> embedding
-    """
-
     def __init__(self, nfeat, nhid, nemb, dropout=0.5, lr=0.01, weight_decay=5e-4,
                  with_relu=True, with_bias=True, device=None):
         super(GCN, self).__init__()
@@ -84,13 +73,6 @@ class GCN(torch.nn.Module):
         self.gc2.reset_parameters()
 
     def forward(self, x, adj):
-        """
-        前向传播生成emb
-
-        :param x: features, type-tensor
-        :param adj: normalized adj, type-sparse tensor
-        :return: embedding, type-tensor
-        """
         if self.with_relu:
             x = self.gc1(x, adj)
             x = F.relu(x)
