@@ -14,9 +14,7 @@ class Client(object):
 
         self.features = data_dict['features_list'][cid]     
         self.adj = data_dict['adj']                         
-        self.adj_norm = None                                
-        # self.adj_norm = normalize_adj(self.adj)           # A'=(D+I)^-1/2 * (A+I) * (D+I)^-1/2  lil_matrix
-        # self.labels = data_dict['labels']                 
+        self.adj_norm = None                                             
         self.train_idx = data_dict['train_idx']             
         self.val_idx = data_dict['val_idx']                 
         self.test_idx = data_dict['test_idx']               
