@@ -47,7 +47,7 @@ def infer_global_model(malicious_client, params_dict, data_dict):
         )
         G.to(device)  
         D = torch.load('saved_models/global_model.pkl')
-        D.to(device)  # D移入GPU
+        D.to(device) 
         noise = torch.rand([features.shape[0], local_embedding_dim]).to(device)
 
     elif aggregation == 'concat':
