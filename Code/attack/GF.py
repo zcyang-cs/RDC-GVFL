@@ -59,7 +59,6 @@ def infer_global_model(malicious_client, params_dict, data_dict):
             nn.Linear(256, (num_clients - 1) * local_embedding_dim)
         )
         G.to(device)  
-        # Server discriminator
         D = torch.load('saved_models/global_model.pkl')
         D.to(device)  
         noise = torch.rand([features.shape[0], (num_clients - 1) * local_embedding_dim]).to(device)
@@ -71,7 +70,6 @@ def infer_global_model(malicious_client, params_dict, data_dict):
     malicious_global_embedding = aggregate(aggregation, noise, malicious_local_embedding, num_clients=num_clients)
 
     epochs_steal = 2000
-    # epochs_steal = 2500
     for epoch in range(epochs_steal):
         G.train()
 
@@ -104,7 +102,6 @@ def infer_global_model(malicious_client, params_dict, data_dict):
     pred_Server_ = pred_Server.detach()  
     clean_embedding_infer_ = clean_embedding_infer.detach()  
 
-    # shadow server
     if aggregation in ['sum', 'avg']:
         surrogate_server = nn.Sequential(
             nn.Linear(local_embedding_dim, int(labels.max() + 1)),
@@ -160,7 +157,7 @@ def attack(malicious_client, params_dict, data_dict, target_node):
     client_embedding_list = torch.load('saved_models/client_embedding_list.pth')
 
     malicious_client_index = malicious_client.cid
-    malicious_local_embedding = client_embedding_list[malicious_client_index].detach()  # 已经在GPU上了
+    malicious_local_embedding = client_embedding_list[malicious_client_index].detach()  
 
     surrogate_server = malicious_client.shadow_global_model
 
@@ -200,6 +197,6 @@ def attack(malicious_client, params_dict, data_dict, target_node):
             modified_adj[edge[0], edge[1]] = 1
             modified_adj[edge[1], edge[0]] = 1
 
-    modified_adj = modified_adj.tocsr()  # coo -> csr
+    modified_adj = modified_adj.tocsr() 
 
     return modified_adj
