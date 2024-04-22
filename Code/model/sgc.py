@@ -4,11 +4,6 @@ from torch.nn.parameter import Parameter
 
 
 class GraphConvolution(torch.nn.Module):
-    """
-    Simple SGC layer, similar to https://arxiv.org/abs/1609.02907 \n
-    based on GraphConv copy from DeepRobust
-    """
-
     def __init__(self, in_features, out_features, with_bias=True):
         super(GraphConvolution, self).__init__()
         self.in_features = in_features
@@ -44,16 +39,6 @@ class GraphConvolution(torch.nn.Module):
 
 
 class SGC(torch.nn.Module):
-    """
-    相比GCN, 只有一层GCN, 没有dropout, 没有relu
-    1 Layer SGC Network(aka. Head GCN), changed from GCN.
-
-    Init:
-        model = Head_GCN(nfeat, nemb, ...)
-    Usage:
-        model(x, adj_norm) -> embedding
-    """
-
     def __init__(self, nfeat, nemb, lr=0.01, weight_decay=5e-4, with_bias=True, device=None):
         super(SGC, self).__init__()
         assert device is not None, "Please specify 'device'!"
@@ -76,13 +61,6 @@ class SGC(torch.nn.Module):
         self.gc1.reset_parameters()
 
     def forward(self, x, adj):
-        """
-        前向传播生成emb
-
-        :param x: features, type-tensor
-        :param adj: normalized adj, type-sparse tensor
-        :return: embedding, type-tensor
-        """
         x = self.gc1(x, adj)
         self.output = x
         return x
