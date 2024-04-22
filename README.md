@@ -6,10 +6,10 @@ This repository is PyTorch implementation for the PRCV 2023 paper RDC-GVFL: A Ro
 The supplemental material is also available in this repository.
 
 ## Data 
-Here we provide the processed data. And the Raw Data can be found in: NYC OpenData: https://opendata.cityofnewyork.us/.  
-We followed the settings in [[Zhang et al., 2020]](#R1) that 
-apply taxi trip data as human mobility data and take the crime count, check-in count, land usage type as prediction tasks, respectively.  
-For New York City zoning dataset, you can contact with Xu Yan(yanxu97@stu.xmu.edu.cn) or Shangbin Wu(shangbin@stu.xmu.edu.cn).
+Here we provide the processed data. And the Raw Data can be found in: 
+Cora Dataset: https://github.com/kimiyoung/planetoid/tree/master/data.  
+Cora_ML Dataset: https://github.com/kimiyoung/planetoid/tree/master/data.  
+Pubmed Dataset: https://github.com/kimiyoung/planetoid/tree/master/data. 
 
 ## Requirements 
 >Python 3.9.16,  
