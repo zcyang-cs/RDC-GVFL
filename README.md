@@ -3,11 +3,6 @@ This repository is PyTorch implementation for the PRCV 2023 paper RDC-GVFL: A Ro
 
 The supplemental material is also available in this repository.
 
-## Table of Contents
-- [Data](#Data)
-- [Requirements](#Requirements)
-- [Citation](#Citation)
-
 ## Data 
 Here we provide the processed data. And the Raw Data can be found in: NYC OpenData: https://opendata.cityofnewyork.us/.  
 We followed the settings in [[Zhang et al., 2020]](#R1) that 
