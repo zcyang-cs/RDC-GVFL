@@ -6,11 +6,10 @@ from utils.utils import aggregate
 
 def fgsm_attack(device, aggregation, num_clients,
                 emb_infer, emb_B, surrogate_server, labels_B, target_node, eps=1):
-    # cat_emb = torch.cat((clean_embedding_infer_, malicious_local_embedding_), dim=-1)
     cat_emb = aggregate(aggregation, emb_infer, emb_B, num_clients=num_clients)
     cat_emb = cat_emb.cpu().detach()
     cat_emb = cat_emb.to(device)
-    base_emb = cat_emb[target_node].clone().cpu().data.numpy()        # [[target_node]] -> [1, 16]
+    base_emb = cat_emb[target_node].clone().cpu().data.numpy()        
     input = cat_emb[target_node].clone()
     input.requires_grad = True
 
