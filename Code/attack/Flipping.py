@@ -1,6 +1,3 @@
-
-
-
 def attack(malicious_client, para_dict, data_dict, target_node):
     scale = para_dict['scale']
     device = para_dict['device']
