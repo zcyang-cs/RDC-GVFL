@@ -1,5 +1,4 @@
 def test_wo_malicious(self, malicious):
-    # local model, global model移入GPU
     self.global_model.to(self.device)
     for client in self.clients:
         client.local_model.to(self.device)
