@@ -36,7 +36,7 @@ def init_paras():
     parser.add_argument('--attack', type=str, default='GF', help='Attack algo',
                         choices=['Nettack', 'GF', 'GF_pgd', 'RND', 'Gaussian', 'Missing', 'Flipping'])
     parser.add_argument('--rand_malicious', default=False, help='Whether to randomly choose malicious',
-                        action='store_true')                        # 输入为True,不输入默认为False
+                        action='store_true')                        
     parser.add_argument('--malicious', type=int, default=None, help='Malicious client index')
     parser.add_argument('--scale', type=float, default=1., help='scale of Flipping attack')
 
@@ -46,7 +46,7 @@ def init_paras():
     # parser.add_argument('--lr_ae', type=float, default=0.01, help='Initial AutoEncoder learning rate')
 
     parser.add_argument('--store_log', help='bool controls whether to store log and default value is False',
-                        action="store_true", default=False)         # 对日志进行控制,不输入默认为False
+                        action="store_true", default=False)         
     args = parser.parse_args()
 
     set_seed(args.seed)
@@ -66,11 +66,6 @@ def init_paras():
 
 
 def initialize(para_dict, data_dict):
-    # log_name = \                          # log不记录aggregation了,因为都是基于sum在做的
-    #     f"{para_dict['dataset']}_s{para_dict['seed']}_cnum{para_dict['num_clients']}_{para_dict['model']}" \
-    #     if para_dict['malicious'] is None \
-    #     else f"{para_dict['dataset']}_s{para_dict['seed']}_cnum{para_dict['num_clients']}_{para_dict['model']}" \
-    #          f"_m{para_dict['malicious']}_A|{para_dict['attack']}|_d|{para_dict['detection']}|_D|{para_dict['defense']}|"
     log_name = \
         f"{para_dict['aggregation']}_cnum{para_dict['num_clients']}_{para_dict['model']}_D|{para_dict['defense']}|" \
         if para_dict['malicious'] is None \
@@ -82,7 +77,6 @@ def initialize(para_dict, data_dict):
     logger.info(f"device: {para_dict['device']}")
     logger.info(f"malicious client: {para_dict['malicious']}")
 
-    # 动态导入Server和Client,这样方便和logger一起使用
     server = getattr(importlib.import_module('server'), 'Server')(para_dict, data_dict)
     for client_index in range(para_dict['num_clients']):
         if client_index == para_dict['malicious']:
