@@ -1,5 +1,5 @@
 # RDC-GVFL (PRCV-2023)
-![image]()
+![image](https://github.com/zcyang-cs/RDC-GVFL/blob/main/figure/RDC-GVFL.png)
 
 This repository is PyTorch implementation for the PRCV 2023 paper RDC-GVFL: A Robust Detection and Correction Framework for GNN-based Vertical Federated Learning.
 
